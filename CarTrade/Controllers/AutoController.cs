@@ -61,7 +61,7 @@ namespace CarTrade.Controllers
 
         //
         // GET: /Auto/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.telep = new SelectList(db.Telephelyek, "id", "cim");
@@ -73,6 +73,7 @@ namespace CarTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(Auto auto, int telep)
         {
             if (ModelState.IsValid && (db.Telephelyek.Find(telep).foglaltHelyek < db.Telephelyek.Find(telep).parkolohely))
@@ -89,7 +90,7 @@ namespace CarTrade.Controllers
 
         //
         // GET: /Auto/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             
@@ -108,6 +109,7 @@ namespace CarTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit(Auto auto, int telep)
         {
             if (ModelState.IsValid && (db.Telephelyek.Find(telep).foglaltHelyek < db.Telephelyek.Find(telep).parkolohely))
@@ -124,7 +126,7 @@ namespace CarTrade.Controllers
 
         //
         // GET: /Auto/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Auto auto = db.Autok.Find(id);
@@ -140,6 +142,7 @@ namespace CarTrade.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Auto auto = db.Autok.Find(id);

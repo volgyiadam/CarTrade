@@ -54,7 +54,7 @@ namespace CarTrade.Controllers
         }
         //
         // GET: /Telephely/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -65,6 +65,7 @@ namespace CarTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create(Telephely telephely)
         {
             if (ModelState.IsValid)
@@ -79,7 +80,7 @@ namespace CarTrade.Controllers
 
         //
         // GET: /Telephely/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Telephely telephely = db.Telephelyek.Find(id);
@@ -95,6 +96,7 @@ namespace CarTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit(Telephely telephely)
         {
             if (ModelState.IsValid)
@@ -108,7 +110,7 @@ namespace CarTrade.Controllers
 
         //
         // GET: /Telephely/Delete/5
-
+        [Authorize]
         public ActionResult Delete(int id = 0)
         {
             Telephely telephely = db.Telephelyek.Find(id);
@@ -124,6 +126,7 @@ namespace CarTrade.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Telephely telephely = db.Telephelyek.Find(id);
