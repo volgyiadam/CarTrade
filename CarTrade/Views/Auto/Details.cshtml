@@ -1,63 +1,38 @@
-﻿@model CarTrade.Models.Auto
+﻿@model CarTrade.Models.AutoView
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <fieldset>
     <legend>Auto</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.marka)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.marka)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.tipus)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.tipus)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.evjarat)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.evjarat)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.gyartasiIdo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.gyartasiIdo)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.allapot)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.allapot)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.tulajdonosokSzama)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.tulajdonosokSzama)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.telephelyId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.telephelyId)
-    </div>
-</fieldset>
+    <h4> @Model.marka, @Model.tipus</h4>
+    <h4>@Model.evjarat</h4>
+    <hr />
+    <br/>
+    <table>
+        <tr>
+            <td><b>Gyártási idő:</b></td>
+            <td><b>@Model.gyartasiIdo</b></td>
+        </tr>
+        <tr>
+            <td><b>Előző tulajdonosok száma:</b></td>
+            <td><b>@Model.tulajdonosokSzama</b></td>
+        </tr>
+        
+        <tr>
+            <td><b>Állapot:</b></td>
+            <td><b>@Model.allapot</b></td>
+        </tr>
+        <tr><td colspan="2"></td></tr>
+        <tr>
+            <td><b>Elérhetőség:</b></td>
+            <td><b>@Model.telephely</b></td>
+        </tr>
+    </table>
+    
+ </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
     @Html.ActionLink("Back to List", "Index")

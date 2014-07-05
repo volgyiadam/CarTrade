@@ -25,22 +25,25 @@
     <tr>
         <td></td>
         <td>
-            @Html.DisplayFor(modelItem => item.gyartasiIdo)
+            @{
+    string gyido = item.gyartasiIdo.ToShortDateString();
+            }
+            @gyido
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.allapot)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tulajdonosokSzama)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telephelyId)
-        </td>
-        <td>
+       </tr>
+    <tr>
+      
+        <td colspan="3">
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>
+    </tr>
+    <tr>
+        <td colspan="3"><hr /></td>
     </tr>
 }
 

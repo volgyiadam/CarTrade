@@ -191,6 +191,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Auto.cs" />
+    <Compile Include="Models\AutoView.cs" />
     <Compile Include="Models\CarTradeDb.cs" />
     <Compile Include="Models\Telephely.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

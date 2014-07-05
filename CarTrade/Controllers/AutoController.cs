@@ -31,7 +31,13 @@ namespace CarTrade.Controllers
             {
                 return HttpNotFound();
             }
-            return View(auto);
+            else
+            {
+                Telephely telep = db.Telephelyek.Find(auto.telephelyId);
+                AutoView av = new AutoView(auto, telep);
+                return View(av);
+            }
+            
         }
 
         //
