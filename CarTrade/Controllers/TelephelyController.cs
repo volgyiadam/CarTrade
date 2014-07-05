@@ -16,14 +16,31 @@ namespace CarTrade.Controllers
         //
         // GET: /Telephely/
 
-        public ActionResult Index()
+        public ActionResult Index(string searchtext = null)
         {
-            return View(db.Telephelyek.ToList());
+            if (searchtext == null)
+            {
+                return View(db.Telephelyek.ToList());
+            }
+
+            else
+            {
+                return View(db.Telephelyek.Where(x => x.cim.StartsWith(searchtext)));
+            }
         }
 
         //
         // GET: /Telephely/Details/5
 
+        //public ActionResult Details(int id = 0)
+        //{
+        //    Telephely telephely = db.Telephelyek.Find(id);
+        //    if (telephely == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(telephely);
+        //}
         public ActionResult Details(int id = 0)
         {
             Telephely telephely = db.Telephelyek.Find(id);
@@ -31,9 +48,10 @@ namespace CarTrade.Controllers
             {
                 return HttpNotFound();
             }
-            return View(telephely);
+            ViewBag.telep = telephely.irSzam + ", " + telephely.cim;
+            ViewBag.foglalt = telephely.foglaltHelyek;
+            return View(db.Autok.Where(x => x.telephelyId == telephely.id).ToList());
         }
-
         //
         // GET: /Telephely/Create
 

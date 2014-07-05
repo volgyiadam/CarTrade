@@ -1,36 +1,41 @@
-﻿@model CarTrade.Models.Telephely
+﻿@model IEnumerable<CarTrade.Models.Auto>
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<fieldset>
-    <legend>Telephely</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.irSzam)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.irSzam)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.cim)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.cim)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.parkolohely)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.parkolohely)
-    </div>
-</fieldset>
+    <h2>@Html.DisplayText("telep")</h2>
+<div>Telephelyen lévő autók száma: @Html.DisplayText("foglalt")</div>
+<table>
+    @foreach (var item in Model)
+    {
+        
+            
+        <tr>
+            <td><h5>@item.marka</h5></td>
+            <td><h5>@item.tipus</h5></td>
+            <td><h5>@item.evjarat</h5></td>
+            <td valign="bottom">@item.gyartasiIdo</td>
+            @if (item.allapot.Length > 15)
+            {
+                <td valign="bottom">@item.allapot.Substring(0,15)...</td>
+            }
+            else
+            {
+                <td valign="bottom">@item.allapot</td>
+            }
+            <td valign="bottom">
+                @Html.ActionLink("Szerkesztés", "Edit", "Auto", new { id = item.id }, null) |
+                @Html.ActionLink("Részletek", "Details", "Auto", new { id = item.id }, null) |
+                @Html.ActionLink("Törlés", "Delete", "Auto", new { id = item.id }, null)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5"><hr /></td>
+        </tr>
+    }
+</table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Vissza", "Index")
 </p>

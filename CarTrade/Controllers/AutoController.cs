@@ -75,8 +75,9 @@ namespace CarTrade.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Auto auto, int telep)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && (db.Telephelyek.Find(telep).foglaltHelyek < db.Telephelyek.Find(telep).parkolohely))
             {
+                db.Telephelyek.Find(telep).foglaltHelyek += 1;
                 auto.telephelyId = telep;
                 db.Autok.Add(auto);
                 db.SaveChanges();
@@ -109,12 +110,14 @@ namespace CarTrade.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Auto auto, int telep)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && (db.Telephelyek.Find(telep).foglaltHelyek < db.Telephelyek.Find(telep).parkolohely))
             {
-                auto.telephelyId = telep;
-                db.Entry(auto).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    db.Telephelyek.Find(auto.telephelyId).foglaltHelyek -= 1;
+                    db.Telephelyek.Find(telep).foglaltHelyek += 1;
+                    auto.telephelyId = telep;
+                    db.Entry(auto).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
             }
             return View(auto);
         }
@@ -140,6 +143,7 @@ namespace CarTrade.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Auto auto = db.Autok.Find(id);
+            db.Telephelyek.Find(auto.telephelyId).foglaltHelyek -= 1;
             db.Autok.Remove(auto);
             db.SaveChanges();
             return RedirectToAction("Index");

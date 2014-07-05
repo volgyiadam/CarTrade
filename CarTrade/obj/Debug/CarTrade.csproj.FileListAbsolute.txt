@@ -84,3 +84,5 @@ F:\mechwart\mvc\CarTrade\CarTrade\bin\zh-Hant\System.Spatial.resources.dll
 F:\mechwart\mvc\CarTrade\CarTrade\obj\Debug\CarTrade.csprojResolveAssemblyReference.cache
 F:\mechwart\mvc\CarTrade\CarTrade\obj\Debug\CarTrade.dll
 F:\mechwart\mvc\CarTrade\CarTrade\obj\Debug\CarTrade.pdb
+F:\mechwart\mvc\CarTrade\CarTrade\obj\Debug\CarTrade.Migrations.InitialCreate.resources
+F:\mechwart\mvc\CarTrade\CarTrade\obj\Debug\CarTrade.csproj.GenerateResource.Cache

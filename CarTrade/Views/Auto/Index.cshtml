@@ -39,13 +39,18 @@
             }
             @gyido
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.allapot)
-        </td>
-       </tr>
-    <tr>
+       
+            @if (item.allapot.Length > 25)
+            {
+                <td valign="bottom">@item.allapot.Substring(0, 25)...</td>
+            }
+            else
+            {
+                <td>@Html.DisplayFor(modelItem => item.allapot)</td>
+            }
+    
       
-        <td colspan="3">
+        <td>
             @Html.ActionLink("Szerkesztés", "Edit", new { id=item.id }) |
             @Html.ActionLink("Részletek", "Details", new { id=item.id }) |
             @Html.ActionLink("Törlés", "Delete", new { id=item.id })

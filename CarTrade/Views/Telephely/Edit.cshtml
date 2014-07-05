@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -15,24 +15,24 @@
 
         @Html.HiddenFor(model => model.id)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.irSzam)
-        </div>
-        <div class="editor-field">
+        
+        <h4>
+            Irányítószám:
+
             @Html.EditorFor(model => model.irSzam)
             @Html.ValidationMessageFor(model => model.irSzam)
-        </div>
+        </h4>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.cim)
-        </div>
-        <div class="editor-field">
+        
+        <h4>
+            Cím:
+
             @Html.EditorFor(model => model.cim)
             @Html.ValidationMessageFor(model => model.cim)
-        </div>
+        </h4>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.parkolohely)
+            Parkolóhelyek száma:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.parkolohely)
@@ -40,13 +40,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="OK" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Vissza", "Index")
 </div>
 
 @section Scripts {
