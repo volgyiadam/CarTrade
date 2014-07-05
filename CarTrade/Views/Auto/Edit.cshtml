@@ -29,11 +29,11 @@
         </h4>
         <hr/>
         <br/>
-        <div>
-            <b>
-            Évjárat:
-            </b>
-
+        <div class="editor-label">
+            @Html.LabelFor(model => model.evjarat)
+        </div>
+        <div class="editor-field">
+        
             @Html.EditorFor(model => model.evjarat)
             @Html.ValidationMessageFor(model => model.evjarat)
         </div>

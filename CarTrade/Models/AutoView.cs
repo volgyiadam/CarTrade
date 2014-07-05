@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -22,7 +23,7 @@ namespace CarTrade.Models
             this.marka = a.marka;
             this.tipus = a.tipus;
             this.evjarat = a.evjarat;
-            this.gyartasiIdo = a.gyartasiIdo.ToShortDateString();
+            this.gyartasiIdo = a.gyartasiIdo.ToString("yyyy-MM-dd");
             this.allapot = a.allapot;
             this.tulajdonosokSzama = a.tulajdonosokSzama;
             this.telephely =t.irSzam + ", "+ t.cim;
