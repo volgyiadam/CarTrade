@@ -16,9 +16,28 @@ namespace CarTrade.Controllers
         //
         // GET: /Auto/
 
-        public ActionResult Index()
+        public ActionResult Index(string searchtext = null, int searchform = -1)
         {
-            return View(db.Autok.OrderBy(x => x.marka).ToList());
+            if (searchtext == null && searchform == -1)
+            {
+                return View(db.Autok.OrderBy(x => x.marka).ToList());
+            }
+
+            else
+            {
+                int ev = 0;
+                if (searchform == 3)
+                {
+                    ev = Convert.ToInt16(searchtext);
+                }
+                switch (searchform)
+                {
+                    case 1: return View(db.Autok.Where(x => x.marka.StartsWith(searchtext)).OrderBy(x => x.marka).ToList());
+                    case 2: return View(db.Autok.Where(x => x.tipus.StartsWith(searchtext)).OrderBy(x => x.marka).ToList());
+                    case 3: return View(db.Autok.Where(x => x.evjarat==ev).OrderBy(x => x.marka).ToList());
+                    default: return View(db.Autok.OrderBy(x => x.marka).ToList());
+                }
+            }
         }
 
         //

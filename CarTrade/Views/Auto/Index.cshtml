@@ -7,6 +7,15 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<form method="post">
+    <select id="searchform" name="searchform">
+        <option value="">Keresés......</option>
+        <option value="1">Márka</option>
+        <option value="2">Típus</option>
+        <option value="3">Évjárat</option>
+    </select>
+    <input id="searchtext" type="search" name="searchtext" value="keresett szó" /> 
+</form>
 <table>
    
 
