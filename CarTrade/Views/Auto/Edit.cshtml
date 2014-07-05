@@ -4,7 +4,6 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -15,26 +14,26 @@
 
         @Html.HiddenFor(model => model.id)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.marka)
-        </div>
-        <div class="editor-field">
+        <h4>
+            Márka:
+       
             @Html.EditorFor(model => model.marka)
             @Html.ValidationMessageFor(model => model.marka)
-        </div>
+        </h4>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.tipus)
-        </div>
-        <div class="editor-field">
+        <h4>
+            Típus:
+       
             @Html.EditorFor(model => model.tipus)
             @Html.ValidationMessageFor(model => model.tipus)
-        </div>
+        </h4>
+        <hr/>
+        <br/>
+        <div>
+            <b>
+            Évjárat:
+            </b>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.evjarat)
-        </div>
-        <div class="editor-field">
             @Html.EditorFor(model => model.evjarat)
             @Html.ValidationMessageFor(model => model.evjarat)
         </div>
