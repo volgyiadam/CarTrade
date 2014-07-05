@@ -1,0 +1,36 @@
+﻿@model CarTrade.Models.Telephely
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Telephely</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.irSzam)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.irSzam)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.parkolohely)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.parkolohely)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

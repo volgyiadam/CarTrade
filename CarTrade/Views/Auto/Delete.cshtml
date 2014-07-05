@@ -1,0 +1,68 @@
+﻿@model CarTrade.Models.Auto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Auto</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.marka)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.marka)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipus)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipus)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.evjarat)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.evjarat)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.gyartasiIdo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.gyartasiIdo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.allapot)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.allapot)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tulajdonosokSzama)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tulajdonosokSzama)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.telephelyId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.telephelyId)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,54 @@
+﻿@model CarTrade.Models.Telephely
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Telephely</legend>
+
+        @Html.HiddenFor(model => model.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.irSzam)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.irSzam)
+            @Html.ValidationMessageFor(model => model.irSzam)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cim)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cim)
+            @Html.ValidationMessageFor(model => model.cim)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.parkolohely)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.parkolohely)
+            @Html.ValidationMessageFor(model => model.parkolohely)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
