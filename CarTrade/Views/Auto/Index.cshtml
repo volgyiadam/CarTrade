@@ -4,48 +4,26 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.marka)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tipus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.evjarat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.gyartasiIdo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.allapot)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tulajdonosokSzama)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telephelyId)
-        </th>
-        <th></th>
-    </tr>
+   
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.marka)
+            <h5>@Html.DisplayFor(modelItem => item.marka)</h5>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tipus)
+            <h5>@Html.DisplayFor(modelItem => item.tipus)</h5>      
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.evjarat)
+            <h5>@Html.DisplayFor(modelItem => item.evjarat)</h5>
         </td>
+        </tr>
+    <tr>
+        <td></td>
         <td>
             @Html.DisplayFor(modelItem => item.gyartasiIdo)
         </td>

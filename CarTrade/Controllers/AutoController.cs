@@ -18,7 +18,7 @@ namespace CarTrade.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Autok.ToList());
+            return View(db.Autok.OrderBy(x => x.marka).ToList());
         }
 
         //
