@@ -13,70 +13,69 @@
     <fieldset>
         <legend>Auto</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.marka)
-        </div>
-        <div class="editor-field">
+        <h4>
+            Márka:
+
             @Html.EditorFor(model => model.marka)
             @Html.ValidationMessageFor(model => model.marka)
-        </div>
+        </h4>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.tipus)
-        </div>
-        <div class="editor-field">
+        <h4>
+            Típus:
+
             @Html.EditorFor(model => model.tipus)
             @Html.ValidationMessageFor(model => model.tipus)
-        </div>
-
+        </h4>
+        <hr />
+        <br />
         <div class="editor-label">
-            @Html.LabelFor(model => model.evjarat)
+            Évjárat:
         </div>
         <div class="editor-field">
+
             @Html.EditorFor(model => model.evjarat)
             @Html.ValidationMessageFor(model => model.evjarat)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.gyartasiIdo)
+            Gyártási idő:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.gyartasiIdo)
             @Html.ValidationMessageFor(model => model.gyartasiIdo)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.allapot)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.allapot)
-            @Html.ValidationMessageFor(model => model.allapot)
-        </div>
+
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.tulajdonosokSzama)
+            Előző tulajdonosok száma:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.tulajdonosokSzama)
             @Html.ValidationMessageFor(model => model.tulajdonosokSzama)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(model => model.telephelyId)
+            Állapot:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.telephelyId)
-            @Html.ValidationMessageFor(model => model.telephelyId)
+            @Html.EditorFor(model => model.allapot)
+            @Html.ValidationMessageFor(model => model.allapot)
+        </div>
+        <div class="editor-label">
+            Telephely:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("telep")
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="OK" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Vissza", "Index")
 </div>
 
 @section Scripts {

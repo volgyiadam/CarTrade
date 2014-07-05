@@ -64,6 +64,7 @@ namespace CarTrade.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.telep = new SelectList(db.Telephelyek, "id", "cim");
             return View();
         }
 
@@ -72,10 +73,11 @@ namespace CarTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Auto auto)
+        public ActionResult Create(Auto auto, int telep)
         {
             if (ModelState.IsValid)
             {
+                auto.telephelyId = telep;
                 db.Autok.Add(auto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,11 +91,14 @@ namespace CarTrade.Controllers
 
         public ActionResult Edit(int id = 0)
         {
+            
             Auto auto = db.Autok.Find(id);
             if (auto == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.telep = new SelectList(db.Telephelyek, "id", "cim", auto.telephelyId);
+
             return View(auto);
         }
 
@@ -102,10 +107,11 @@ namespace CarTrade.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Auto auto)
+        public ActionResult Edit(Auto auto, int telep)
         {
             if (ModelState.IsValid)
             {
+                auto.telephelyId = telep;
                 db.Entry(auto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -5,7 +5,7 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Új autó felvétele", "Create")
 </p>
 <form method="post">
     <select id="searchform" name="searchform">
@@ -14,7 +14,7 @@
         <option value="2">Típus</option>
         <option value="3">Évjárat</option>
     </select>
-    <input id="searchtext" type="search" name="searchtext" value="keresett szó" /> 
+    <input id="searchtext" type="search" name="searchtext" value="" /> 
 </form>
 <table>
    
@@ -46,9 +46,9 @@
     <tr>
       
         <td colspan="3">
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Szerkesztés", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Részletek", "Details", new { id=item.id }) |
+            @Html.ActionLink("Törlés", "Delete", new { id=item.id })
         </td>
     </tr>
     <tr>
